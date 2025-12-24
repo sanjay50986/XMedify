@@ -5,7 +5,7 @@ import Labs from '../../assets/Labs.svg'
 import Medicine from '../../assets/Medicine.svg'
 import Ambulance from '../../assets/Ambulance.svg'
 
-const SearchSection = ({status, fetchStatus, selectedStatus, setSelectedStatus, fetchCity, city, selectedCity, setSelectedCity}) => {
+const SearchSection = ({ status, fetchStatus, selectedStatus, setSelectedStatus, fetchCity, city, selectedCity, setSelectedCity }) => {
 
   const cards = [
     {
@@ -40,53 +40,53 @@ const SearchSection = ({status, fetchStatus, selectedStatus, setSelectedStatus, 
   }, [])
 
   useEffect(() => {
-    if(selectedStatus) {
+    if (selectedStatus) {
       fetchCity()
     }
   }, [selectedStatus])
-  
+
 
   return (
     <section className='search-section container shadow-sm'>
-         <div className='search-container flex-column flex-md-row d-flex align-items-center justify-content-between p-5'>
-          <div className='search-select w-100 '>
-            <select
+      <div className='search-container flex-column flex-md-row d-flex align-items-center justify-content-between p-5'>
+        <div className='search-select w-100' id="state">
+          <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className='w-100' name="" id="">
-              <option disabled value="">State</option>
-              {status.map((state, index) => (
-                <option key={index} value={state} >{state}</option>
-              ))}
-            </select>
-          </div>                                  
+            className='w-100'>
+            <option disabled>State</option>
+            {status.map((state, index) => (
+              <option key={index} value={state} >{state}</option>
+            ))}
+          </select>
+        </div>
 
-          <div  className='search-select w-100  pt-md-0 pt-3'>
-            <select
+        <div className='search-select w-100  pt-md-0 pt-3' id="city">
+          <select
             value={selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
-             className='w-100' name="" id="">
-              <option disabled value="">City</option>
-              {city.map((city, index) => (
-                <option key={index} value={city} >{city}</option>
-              ))}
-            </select>
-          </div>
+            className='w-100'>
+            <option disabled>City</option>
+            {city.map((city, index) => (
+              <option key={index} value={city} >{city}</option>
+            ))}
+          </select>
+        </div>
 
-          <button className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
-         </div>
+        <button className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+      </div>
 
-          <h3>You may be looking for</h3>
-         <div className='cards d-flex  justify-content-between p-2 mb-5 flex-column flex-md-row'>
-          {
-            cards.map((card) => (
-              <div key={card.id} className='card w-100'>
-                <img src={card.icon} height={50} width={50} alt={card.title} />
-                <h2>{card.title}</h2>
-              </div>
-            ))
-          }
-         </div>
+      <h3>You may be looking for</h3>
+      <div className='cards d-flex  justify-content-between p-2 mb-5 flex-column flex-md-row'>
+        {
+          cards.map((card) => (
+            <div key={card.id} className='card w-100'>
+              <img src={card.icon} height={50} width={50} alt={card.title} />
+              <h2>{card.title}</h2>
+            </div>
+          ))
+        }
+      </div>
     </section>
   )
 }

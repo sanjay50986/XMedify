@@ -5,7 +5,7 @@ import HospitalCard from '../components/Hostpital/HospitalCard'
 
 const Search = () => {
 
-  const [searchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams()
   const [hospital, setHospital] = useState([])
   const [loading, setLoading] = useState(false)
   const state = searchParams.get("state")
@@ -51,6 +51,16 @@ const Search = () => {
     }
   }
 
+  const handleSearch = () => {
+    if (!finalState || !finalCity) return
+
+    setSearchParams({
+      state: finalState,
+      city: finalCity,
+    })
+
+    fetchHospital()
+  }
 
   useEffect(() => {
     fetchStatus()
@@ -96,7 +106,7 @@ const Search = () => {
               </select>
             </div>
 
-            <button onClick={fetchHospital} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+            <button onClick={handleSearch} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
           </div>
         </div>
       </div>

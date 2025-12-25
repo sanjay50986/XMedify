@@ -20,14 +20,14 @@ const Hero = ({status, fetchStatus, selectedStatus, setSelectedStatus, fetchCity
             </div>
 
             <SearchSection
-             status={status} 
-             fetchStatus={fetchStatus} 
-             selectedStatus={selectedStatus} 
-             setSelectedStatus={setSelectedStatus}
-             fetchCity={fetchCity}
-             city={city}
-             selectedCity={selectedCity}
-             setSelectedCity={setSelectedCity}/>
+              status={status} 
+              fetchStatus={fetchStatus} 
+              selectedStatus={selectedStatus} 
+              setSelectedStatus={setSelectedStatus}
+              fetchCity={fetchCity}
+              city={city}
+              selectedCity={selectedCity}
+              setSelectedCity={setSelectedCity}/>
         </div>
     </section>
   )

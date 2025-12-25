@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Doctor from '../../assets/Doctor.svg'
 import Hospital from '../../assets/Hospital.svg'
 import Labs from '../../assets/Labs.svg'
 import Medicine from '../../assets/Medicine.svg'
 import Ambulance from '../../assets/Ambulance.svg'
+import { useNavigate } from 'react-router'
 
 const SearchSection = ({ status, fetchStatus, selectedStatus, setSelectedStatus, fetchCity, city, selectedCity, setSelectedCity }) => {
+
+  const navigate = useNavigate()
 
   const cards = [
     {
@@ -54,7 +57,7 @@ const SearchSection = ({ status, fetchStatus, selectedStatus, setSelectedStatus,
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
             className='w-100'>
-            <option disabled>State</option>
+            <option disabled selected>State</option>
             {status.map((state, index) => (
               <option key={index} value={state} >{state}</option>
             ))}
@@ -66,14 +69,14 @@ const SearchSection = ({ status, fetchStatus, selectedStatus, setSelectedStatus,
             value={selectedCity}
             onChange={(e) => setSelectedCity(e.target.value)}
             className='w-100'>
-            <option disabled>City</option>
+            <option disabled selected>City</option>
             {city.map((city, index) => (
               <option key={index} value={city} >{city}</option>
             ))}
           </select>
         </div>
 
-        <button className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+        <button onClick={() => navigate(`/search?state=${selectedStatus}&city=${selectedCity}`)} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
       </div>
 
       <h3>You may be looking for</h3>

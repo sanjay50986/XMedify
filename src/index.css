@@ -128,7 +128,7 @@ h3 {
 
 .search-page {
     background-color: #E7F0FF;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .overlay {
@@ -211,4 +211,126 @@ h3 {
     font-weight: 500;
     color: #01A400;
     padding: 6px;
+}
+
+.slots-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.slot-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #F0F0F0;
+  padding-top: 20px;
+}
+
+.slot-label {
+  min-width: 90px;
+  font-weight: 500;
+  color: #444;
+}
+
+.slot-times {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.time-btn {
+  padding: 8px 14px;
+  border: 1.5px solid #2aa7ff;
+  background: transparent;
+  color: #2aa7ff;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.time-btn:hover {
+  background: #2aa7ff;
+  color: #fff;
+}
+
+
+.week-slide {
+  text-align: center;
+  cursor: pointer;
+}
+
+.week-day {
+  font-weight: 500;
+  margin: 0;
+  font-size: 16px;
+}
+
+.week-date {
+  font-size: 13px;
+  color: #777;
+  margin: 0;
+}
+
+.week-slots {
+  font-size: 12px;
+  color: #01A400;
+}
+
+.week-slide.active .week-day {
+  color: #2aa7ff;
+  font-weight: 600;
+}
+
+.week-slide.active::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 3px;
+  background: #2aa7ff;
+  margin: 6px auto 0;
+  border-radius: 2px;
+}
+
+.week-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.swiper-btn-prev,
+.swiper-btn-next {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+
+/* optional hover */
+.swiper-btn-prev:hover,
+.swiper-btn-next:hover {
+  opacity: 0.7;
+}
+
+.my-bookings {
+    background-color: #E7F0FF;
+    min-height: 100vh;
+}
+
+.time-box {
+    border: 1px solid #2AA7FF;
+    padding: 6px 25px;
+    color: #2AA7FF;
+    border-radius: 4px;
+}
+
+.day-box {
+      border: 1px solid #00A500;
+    padding: 6px 25px;
+    color: #00A500;
+    border-radius: 4px;
 }

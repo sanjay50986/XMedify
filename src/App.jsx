@@ -2,7 +2,7 @@ import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from './pages/Home'
 import Search from './pages/Search'
-import MyBookings from './MyBookings'
+import MyBookings from './pages/MyBooking'
 
 
 const router = createBrowserRouter([

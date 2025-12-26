@@ -106,19 +106,19 @@ const Search = () => {
               </select>
             </div>
 
-            <button onClick={handleSearch} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+            <button type="submit" id="searchBtn" onClick={handleSearch} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
           </div>
         </div>
       </div>
 
       <div className='hospital-container'>
         <div className='container'>
-          <h2>{hospital.length} medical centers available in {finalCity.toLowerCase()}</h2>
+          <h1>{hospital.length} medical centers available in {finalCity.toLowerCase()}</h1>
           <p>Book appointments with minimum wait-time & verified doctor details</p>
         </div>
       </div>
 
-      <div className='container'>
+      <div className='container pb-5'>
         {loading ? <h2>Loading...</h2> : hospital.map((hos, index) => <HospitalCard key={index} hospital={hos} />)}
       </div>
     </main>

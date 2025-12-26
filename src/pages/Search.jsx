@@ -12,6 +12,8 @@ const Search = () => {
   const cityUrl = searchParams.get("city")
   const [status, setStatus] = useState([])
   const [city, setCity] = useState([])
+  const [statusOpen, setStatusOpen] = useState(false)
+  const [cityOpen, setCityOpen] = useState(false)
   const [selectedStatus, setSelectedStatus] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
 
@@ -83,27 +85,37 @@ const Search = () => {
         <div className='search-bar shadow-sm container'>
           <div className='search-container flex-column flex-md-row d-flex align-items-center justify-content-between p-4'>
             <div className='search-select w-100' id="state">
-              <select
-                value={selectedStatus}
-                onChange={(e) => setSelectedStatus(e.target.value)}
-                className='w-100'>
-                <option disabled selected>State</option>
-                {status.map((city, index) => (
-                  <option key={index} value={city} >{city}</option>
-                ))}
-              </select>
+              <div
+                className='dropdown-wrapper'
+                onClick={() => setStatusOpen(!statusOpen)}
+              >
+                <div className='selected-value'>{selectedStatus || "State"}</div>
+                <i className="bi bi-chevron-down"></i>
+                {statusOpen && (
+                  <ul className='dropdown-list'>
+                    {status.map((item, index) => (
+                      <li key={index} onClick={() => { setSelectedStatus(item); setStatusOpen(false) }}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
 
             <div className='search-select w-100  pt-md-0 pt-3' id="city">
-              <select
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-                className='w-100'>
-                <option disabled selected>City</option>
-                {city.map((city, index) => (
-                  <option key={index} value={city} >{city}</option>
-                ))}
-              </select>
+              <div
+                className='dropdown-wrapper'
+                onClick={() => setCityOpen(!cityOpen)}
+              >
+                <div className='selected-value'>{selectedCity || "City"}</div>
+                <i className="bi bi-chevron-down"></i>
+                {cityOpen && (
+                  <ul className='dropdown-list'>
+                    {city.map((item, index) => (
+                      <li key={index} onClick={() => { setSelectedCity(item); setCityOpen(false) }}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
 
             <button type="submit" id="searchBtn" onClick={handleSearch} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>

@@ -24,7 +24,7 @@ const NavBar = () => {
                   <Link className="nav-link">Surgeries</Link>
                   <Link className="nav-link">Software for Provider</Link>
                   <Link className="nav-link">Facilities</Link>
-                  <Link to="/my-bookings" className="nav-link">
+                  <Link to="my-bookings" className="nav-link">
                     <button className='btn btn-primary'>My Bookings</button>
                   </Link>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../components/NavBar/NavBar'
 import HospitalImage from '../assets/Hospital.png'
-import Like from '../assets/like.svg'
+import Like from '../assets/Like.svg'
 
 const MyBooking = () => {
 

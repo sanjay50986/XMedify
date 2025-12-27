@@ -76,7 +76,7 @@ const SearchSection = ({ status, fetchStatus, selectedStatus, setSelectedStatus,
           </select>
         </div>
 
-        <button onClick={() => navigate(`/search?state=${selectedStatus}&city=${selectedCity}`)} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+        <button type='submit' id='searchBtn' onClick={() => navigate(`/search?state=${selectedStatus}&city=${selectedCity}`)} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
       </div>
 
       <h3>You may be looking for</h3>

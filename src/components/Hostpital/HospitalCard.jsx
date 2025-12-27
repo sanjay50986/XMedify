@@ -6,6 +6,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import Next from '../../assets/next.svg'
 import Back from '../../assets/back.svg'
+import Like from '../../assets/like.svg'
 
 const HospitalCard = ({ hospital }) => {
 
@@ -77,10 +78,15 @@ const HospitalCard = ({ hospital }) => {
             <div className='d-flex flex-column flex-md-row justify-content-between'>
                 <img className='d-none d-md-block' width={150} height={150} src={HospitalImage} alt="hospital" />
                 <div className='hospital-info mt-0 mt-md-5'>
-                    <h3>{hospital['Hospital Name']}</h3>
+                    <h3 style={{textAlign: "left", color: "#14BEF0"}}>{hospital['Hospital Name']}</h3>
                     <h4>{hospital.Address}, {hospital.City}</h4>
                     <p className='types'>Smilessence Center for Advanced Dentistry + 1</p>
                     <p className='fee'><span>FREE</span> Consultation fee at clinic</p>
+
+                    <span className='rating-box'>
+                        <img width={16} height={16} src={Like} alt="rating" />
+                        <span className='rating-count'>5</span>
+                    </span>
                 </div>
                 <div className='d-flex flex-column justify-content-end'>
                     <h3 className='avalable-text'>Available Today</h3>

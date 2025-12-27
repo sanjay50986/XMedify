@@ -11,14 +11,14 @@ const Search = () => {
   const state = searchParams.get("state")
   const cityUrl = searchParams.get("city")
   const [status, setStatus] = useState([])
-  const [city, setCity] = useState([])
+  const [citi, setCity] = useState([])
   const [statusOpen, setStatusOpen] = useState(false)
   const [cityOpen, setCityOpen] = useState(false)
   const [selectedStatus, setSelectedStatus] = useState("")
   const [selectedCity, setSelectedCity] = useState("")
 
   const finalState = selectedStatus || state
-  const finalCity = selectedCity || cityUrl
+  const city = selectedCity || cityUrl
 
   const fetchStatus = async () => {
     try {
@@ -44,7 +44,7 @@ const Search = () => {
   const fetchHospital = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`https://meddata-backend.onrender.com/data?state=${finalState}&city=${finalCity}`)
+      const response = await fetch(`https://meddata-backend.onrender.com/data?state=${finalState}&city=${city}`)
       const data = await response.json()
       setHospital(data)
       setLoading(false)
@@ -54,11 +54,11 @@ const Search = () => {
   }
 
   const handleSearch = () => {
-    if (!finalState || !finalCity) return
+    if (!finalState || !city) return
 
     setSearchParams({
       state: finalState,
-      city: finalCity,
+      city: city,
     })
 
     fetchHospital()
@@ -78,12 +78,14 @@ const Search = () => {
     fetchHospital()
   }, [])
 
+  let number = hospital.length
+
   return (
     <main className='search-page'>
       <NavBar />
       <div className='overlay'>
         <div className='search-bar shadow-sm container'>
-          <div className='search-container flex-column flex-md-row d-flex align-items-center justify-content-between p-4'>
+          <div className='search-container flex-column flex-md-row d-flex align-items-center justify-content-between p-4 gap-4'>
             <div className='search-select w-100' id="state">
               <div
                 className='dropdown-wrapper'
@@ -110,7 +112,7 @@ const Search = () => {
                 <i className="bi bi-chevron-down"></i>
                 {cityOpen && (
                   <ul className='dropdown-list'>
-                    {city.map((item, index) => (
+                    {citi.map((item, index) => (
                       <li key={index} onClick={() => { setSelectedCity(item); setCityOpen(false) }}>{item}</li>
                     ))}
                   </ul>
@@ -118,14 +120,14 @@ const Search = () => {
               </div>
             </div>
 
-            <button type="submit" id="searchBtn" onClick={handleSearch} className='btn btn-primary px-5 py-2 mt-md-0 mt-3'>Search</button>
+            <button type="submit" id="searchBtn" onClick={handleSearch} className='btn btn-primary search-btn px-5 py-2 mt-md-0 mt-3'>Search</button>
           </div>
         </div>
       </div>
 
       <div className='hospital-container'>
         <div className='container'>
-          <h1>{hospital.length} medical centers available in {finalCity.toLowerCase()}</h1>
+          <h1>{number} medical centers available in {city}</h1>
           <p>Book appointments with minimum wait-time & verified doctor details</p>
         </div>
       </div>

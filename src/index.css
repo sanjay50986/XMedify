@@ -198,6 +198,8 @@ h3 {
 .fee {
     font-size: 14px;
     font-weight: 400;
+    border-bottom: 1px dotted #E8E8F0;
+    padding-bottom: 14px;
 }
 
 .fee span {
@@ -385,4 +387,38 @@ h3 {
 
 .dropdown-list li:hover {
     background-color: #e7f0ff;
+}
+
+.rating-box {
+    background-color: #00A500;
+    border-radius: 4px;
+    padding: 4px 14px;
+}
+
+.rating-count {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 700;
+    padding-left: 6px;
+    padding-top: 3px;
+}
+
+.search-btn {
+        padding: 12px 40px !important;
+}
+
+.time-box {
+    border: 1px solid #2AA7FF;
+    padding: 6px 25px;
+    border-radius: 3px;
+     color: #2AA7FF;
+}
+
+.date-box {
+     border: 1px solid #007100;
+    padding: 6px 25px;
+    border-radius: 3px;
+    color: #007100;
+    margin-left: 20px;
+    font-weight: 700;
 }

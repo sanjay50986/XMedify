@@ -75,8 +75,8 @@ const Search = () => {
   }, [selectedStatus])
 
   useEffect(() => {
-    fetchHospital()
-  }, [])
+      fetchHospital()
+  }, [selectedCity])
 
   let number = hospital.length
 

@@ -1,8 +1,11 @@
 import React from 'react'
 import Logo from '../../assets/Logo.svg'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 const NavBar = () => {
+
+  const navigation = useNavigate()
+
   return (
     <header>
         <div className='banner'>
@@ -12,7 +15,7 @@ const NavBar = () => {
         <div  style={{backgroundColor: "#E7F0FF", padding: "0.5rem"}}>
            <nav class=" container navbar navbar-expand-lg">
             <div class="container-fluid ">
-              <a class="navbar-brand d-flex align-items-center" href="#"><img src={Logo} alt="Logo" /></a>
+              <a class="navbar-brand d-flex align-items-center" ><img src={Logo} alt="Logo" /></a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -24,7 +27,7 @@ const NavBar = () => {
                   <Link className="nav-link">Surgeries</Link>
                   <Link className="nav-link">Software for Provider</Link>
                   <Link className="nav-link">Facilities</Link>
-                  <Link to="my-bookings" className="nav-link">
+                  <Link to="/my-bookings" className="nav-link">
                     <button className='btn btn-primary'>My Bookings</button>
                   </Link>
                 </div>

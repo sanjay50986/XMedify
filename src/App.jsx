@@ -1,5 +1,6 @@
 import React from 'react'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter } from 'react-router'
+import { RouterProvider } from "react-router/dom";
 import Home from './pages/Home'
 import Search from './pages/Search'
 import MyBookings from './pages/MyBooking'

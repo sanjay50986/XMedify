@@ -6,7 +6,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 import Next from '../../assets/next.svg'
 import Back from '../../assets/back.svg'
-import Like from '../../assets/like.svg'
+import Like from '../../assets/Like.svg'
 
 const HospitalCard = ({ hospital }) => {
 
